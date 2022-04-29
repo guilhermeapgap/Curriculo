@@ -1,2 +1,2 @@
 # Currículo
-Esse e meu Currículo: [Currículo](https://curriculo-guilhermeap.netlify.app)
+Esse e meu [Currículo](https://curriculo-guilhermeap.netlify.app)
