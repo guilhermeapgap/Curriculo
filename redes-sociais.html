@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes sociais</title>
+    <link rel="shortcut icon" href="imagens/curriculo-2.png" type="image/x-icon">
+    <link rel="stylesheet" href="nomalize.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        body{
+            background-color: #9ca4a7;
+            background:no-repeat url(imagens/montanhas.jpg);
+            background-position: center;
+            background-attachment: fixed;   
+            background-size: cover;         
+            
+        }
+        a{
+            text-decoration: none;
+            font-size: 2em;
+            color: black;
+        }
+        h1{
+            margin-bottom: 8px;
+            color: #cfd2d4;
+            font-family: 'Noto Serif', serif;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        #social-media{
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            margin-top: 20px;
+            
+        }
+        img{
+            width: 100px;
+            opacity: 0.8;
+            padding-bottom: 5px;
+        }
+        img:hover{
+            opacity: 1;
+            transform: scale(1.1);
+        } 
+        strong{
+            display: none;
+            color: #ced3da;
+        }
+        p{
+            margin: 10px 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+        /* botão copiar pix */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 140px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -75px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+            }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        #myInput{
+            display: none;
+        }
+        
+        #pix{
+            margin: 10px 0px;
+        }   
+
+        #button-copy{
+            background-color: transparent;
+            border: transparent;
+        }
+        #button-form{
+            border-radius: 5px;
+            padding: 8px;
+            background-color: #646c74;
+            border: none;
+            color: white;
+            margin: 2px 0px 20px 0px;
+        }
+        #button-form:hover{
+            background-color:#12171d;
+            transition: 1.5s;
+            padding: 12px;
+            transform: scale(1.05);
+        }
+        input{
+            height: 30px;
+        }
+
+        input, textarea{
+            border: solid 0.01em ;
+            margin: 1px;
+            border-radius: 5px;    
+        }
+        @media (max-width:500px) {
+            #social-media{ 
+            margin-top: 5%;       
+        }
+            img{
+            width: 80px;
+            }
+        }
+        #arrow-back{
+            margin-top: 10px;
+            left: 10px;
+            width: 50px;
+            position: fixed;
+            animation: arrow 1s ease alternate infinite;
+        }
+        @keyframes arrow{
+    to{transform: translateX(10px);}
+}
+    </style>
+</head>
+<body>
+        <nav>
+            <a href="index.html"><img src="imagens/arrow-back.png" alt="arrow-back" id="arrow-back"></a>
+        </nav>
+
+
+        <div id="social-media">
+                      
+            <a href="https://www.facebook.com/guilhermeapgap/" target="_blank"><img src="imagens/facebook.png" alt="facebook"></a>
+            <a href="http://api.whatsapp.com/send?phone=5561991823714"target="_blank"><img src="imagens/whatsapp-icon.png" alt="whatsapp" ></a>
+            <a href="https://www.linkedin.com/in/guilherme-augusto-60892720b/"target="_blank"><img src="imagens/linkedin.png" alt="linkedin" ></a>
+            <a href="https://github.com/guilhermeapgap"target="_blank"><img src="imagens/github.png" alt="github" ></a>
+
+            <div id="pix">
+                <input type="text" value="guilhermeapgap@hotmail.com" id="myInput">
+                <div class="tooltip">
+                    <button onclick="myFunction()" onmouseout="outFunc()" id="button-copy">
+                        <span class="tooltiptext" id="myTooltip">Copiar pix</span>
+                        <!-- Copiar --> <img src="imagens/pix.png" alt="pix">
+                    </button>
+                </div>
+            </div>
+
+            <h1>Deixe sua mensagem!</h1>
+
+            <form action="https://api.staticforms.xyz/submit" 
+            method="post">
+                <input type="hidden" name="accessKey" value="a8cdaa8d-a0c9-4162-b3d3-b41d37680771">
+                <input type="hidden" name="redirectTo" value="https://curriculo-guilhermeap.netlify.app"> 
+
+                <input type="text" name="name" placeholder="nome:" id="nome"> 
+                
+                <input type="email" name="email" id="email" placeholder="email:">
+
+                <textarea name="message" id="mensagem" cols="35" rows="5" placeholder="mensagem:"></textarea>
+
+                <button id="button-form">enviar mensagem</button>
+            </form>
+        </div>
+        <script>
+            function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(copyText.value);
+        
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "PIX Copiado";
+        }
+
+        function outFunc() {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copiar PIX";
+        }
+        </script>
+</body>
+</html>
